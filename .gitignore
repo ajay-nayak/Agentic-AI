@@ -38,7 +38,6 @@ venv.bak/
 *.pem
 *.key
 *.cert
-.env.example
 
 # Testing & Coverage
 .pytest_cache/
