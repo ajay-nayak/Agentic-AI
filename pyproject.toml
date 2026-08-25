@@ -1,0 +1,57 @@
+[project]
+name = "agentic-ai-workspace"
+version = "0.1.0"
+description = "A modular, scalable monorepo for Agentic AI projects, architectures, and experiments built with LangChain, LangGraph, and Python."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Ajay Nayak" }
+]
+dependencies = [
+    "langchain>=1.2.15",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-openai>=1.2.1",
+    "langchain-ollama>=1.1.0",
+    "langchain-groq>=0.2.0",
+    "langgraph>=0.2.0",
+    "tavily-python>=0.5.0",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.7.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "flake8>=7.0.0",
+    "mypy>=1.9.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "projects/*",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --import-mode=importlib"
+testpaths = [
+    "projects",
+    "shared",
+]
+pythonpath = [
+    ".",
+    "shared/python",
+]
