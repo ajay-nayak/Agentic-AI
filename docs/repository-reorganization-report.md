@@ -49,8 +49,7 @@ agentic-ai/
 │   └── repository-reorganization-report.md
 │
 ├── projects/
-│   ├── 01-llm-chains-and-prompts/     # Clean LCEL summarizer + few-shot password generator
-│   ├── 02-model-switching-groq/       # Groq model switcher & multi-model benchmarking
+│   ├── 01-llm-chains-and-prompts/     # Clean LCEL summarizer with prompt templating
 │   ├── 03-ai-search-agent/            # Autonomous ReAct agent with Tavily + offline fallback
 │   └── 04-langgraph-state-workflows/  # Stateful multi-node LangGraph orchestration
 │

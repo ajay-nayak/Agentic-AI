@@ -36,7 +36,6 @@ REQUIRED_DOCS = [
 
 REQUIRED_PROJECTS = [
     "projects/01-llm-chains-and-prompts",
-    "projects/02-model-switching-groq",
     "projects/03-ai-search-agent",
     "projects/04-langgraph-state-workflows",
 ]

@@ -254,9 +254,7 @@ Agentic-AI/
 │   └── repository-reorganization-report.md # Transformation & Gap analysis report
 │
 ├── projects/
-│   ├── 01-llm-chains-and-prompts/     # LCEL Chains, Few-Shot Prompting, Summarization
-│   │   ├── README.md, pyproject.toml, src/, tests/
-│   ├── 02-model-switching-groq/       # Groq Model Switching & Benchmarking
+│   ├── 01-llm-chains-and-prompts/     # LCEL Chains, Prompt Templates & Summarization
 │   │   ├── README.md, pyproject.toml, src/, tests/
 │   ├── 03-ai-search-agent/            # Autonomous ReAct Search Agent with Tavily
 │   │   ├── README.md, pyproject.toml, src/, tests/
@@ -283,8 +281,7 @@ Agentic-AI/
 
 | Project | Description | Key Concepts | Primary Technologies |
 | :--- | :--- | :--- | :--- |
-| [01 - LLM Chains & Prompts](projects/01-llm-chains-and-prompts/README.md) | Composable LCEL chains for summarization and few-shot password generation. | LCEL, PromptTemplate, Few-Shot, Multi-Provider | LangChain, Ollama, OpenAI, Python |
-| [02 - Model Switching (Groq)](projects/02-model-switching-groq/README.md) | Dynamic LLM switching and multi-model benchmarking. | Dynamic Provider Routing, Multi-Model Comparison | LangChain, Groq API, Python |
+| [01 - LLM Chains & Prompts](projects/01-llm-chains-and-prompts/README.md) | Composable LCEL chains for document summarization with prompt templating. | LCEL, PromptTemplate, Multi-Provider | LangChain, Ollama, OpenAI, Python |
 | [03 - AI Search Agent](projects/03-ai-search-agent/README.md) | Autonomous ReAct agent with real-time web search integration. | ReAct Loop, Tool Calling, Web Search Grounding | LangChain, Tavily API, Ollama, Python |
 | [04 - LangGraph Workflows](projects/04-langgraph-state-workflows/README.md) | Stateful multi-node graph orchestration with conditional routing. | StateGraph, Typed State, Reducers, Conditional Edges | LangGraph, LangChain, Python |
 
@@ -296,10 +293,9 @@ Follow this recommended learning path to master Agentic AI from first principles
 
 ```text
 1. [Foundation] LCEL & Prompt Templating       --> projects/01-llm-chains-and-prompts
-2. [Inference] Multi-Model Routing & Groq     --> projects/02-model-switching-groq
-3. [Autonomy] ReAct Loops & Live Web Tools    --> projects/03-ai-search-agent
-4. [Graphs] State Machines & Dynamic Routing  --> projects/04-langgraph-state-workflows
-5. [Advanced] Checkpointing, HITL & React UI  --> docs/architecture/frontend-integration.md
+2. [Autonomy] ReAct Loops & Live Web Tools    --> projects/03-ai-search-agent
+3. [Graphs] State Machines & Dynamic Routing  --> projects/04-langgraph-state-workflows
+4. [Advanced] Checkpointing, HITL & React UI  --> docs/architecture/frontend-integration.md
 ```
 
 ---

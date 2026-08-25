@@ -1,14 +1,14 @@
 # 01 - LLM Chains & Prompt Engineering
 
-A practical implementation of **LangChain Expression Language (LCEL)**, prompt templating, few-shot prompting, and local/cloud LLM model orchestration.
+A practical implementation of **LangChain Expression Language (LCEL)**, prompt templating, parameterized inputs, and local/cloud LLM model orchestration.
 
 ---
 
 ## 📌 Project Overview
 
 This project demonstrates the core foundational building block of LLM applications: composing declarative pipelines using LangChain Expression Language (LCEL). It covers:
-1. **Text Summarization**: Structured prompt templating with parameterized variable inputs to distill documents and extract key takeaways.
-2. **Few-Shot Guided Generation**: Constrained, few-shot guided prompt engineering for deterministic password generation with anchored character sets.
+- **Text Summarization**: Structured prompt templating with parameterized variable inputs to distill documents and extract key takeaways.
+- **Provider Switching**: Seamlessly running chains against local Ollama models (`gemma4:e2b`) or cloud LLMs (OpenAI, Groq).
 
 ---
 
@@ -16,19 +16,19 @@ This project demonstrates the core foundational building block of LLM applicatio
 
 - **LangChain Expression Language (LCEL)**: Declarative chaining using the pipe operator (`prompt | model`).
 - **Prompt Templating**: Dynamic parameter substitution using `PromptTemplate`.
-- **Few-Shot Prompting**: Providing pattern demonstrations inside the context to steer model entropy and format.
-- **Provider Agnosticism**: Seamlessly switching between local Ollama instances (`gemma4:e2b`, `gemma3:1b`) and cloud providers (OpenAI, Groq).
+- **Output Handling**: Clean AIMessage extraction and content parsing.
+- **Provider Agnosticism**: Unified configuration across local open-weights models and hosted APIs.
 
 ---
 
 ## 🏗️ Architecture & Data Flow
 
 ```text
-User Input (Text / Seed)
+User Input (Text Article / Document)
          │
          ▼
 ┌─────────────────────────┐
-│     PromptTemplate      │  <-- Injects variables into structured prompt
+│     PromptTemplate      │  <-- Injects text into structured prompt template
 └───────────┬─────────────┘
             │ Formatted Prompt
             ▼
@@ -38,7 +38,7 @@ User Input (Text / Seed)
             │ Raw Response / AIMessage
             ▼
 ┌─────────────────────────┐
-│     Response Output     │  <-- Clean string extraction
+│     Response Output     │  <-- Clean string extraction & key findings
 └─────────────────────────┘
 ```
 
@@ -48,7 +48,7 @@ User Input (Text / Seed)
 
 ### 1. Prerequisites
 - Python 3.11+
-- Optional: Local [Ollama](https://ollama.com/) running `gemma4:e2b` or `gemma3:1b` (or an `OPENAI_API_KEY` configured in `.env`).
+- Optional: Local [Ollama](https://ollama.com/) running `gemma4:e2b` (or an `OPENAI_API_KEY` configured in `.env`).
 
 ### 2. Install Dependencies
 ```bash
@@ -83,8 +83,8 @@ PYTHONPATH=../..:. uv run python src/app.py
 # Run with OpenAI
 uv run python src/app.py --provider openai --model gpt-4o-mini
 
-# Run a specific task
-uv run python src/app.py --task summarize
+# Run with custom text
+uv run python src/app.py --text "Agentic AI refers to autonomous systems where LLMs reason, plan, and invoke external tools dynamically."
 ```
 
 ### 4. Run Unit Tests
@@ -103,7 +103,6 @@ uv run pytest tests/
 ├── src/
 │   ├── __init__.py
 │   ├── summarizer.py       # LCEL summarization chain
-│   ├── password_generator.py # Few-shot password generator
 │   └── app.py              # CLI entry point
 └── tests/
     └── test_chains.py      # Unit tests with mocked LLMs
