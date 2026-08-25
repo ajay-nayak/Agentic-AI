@@ -57,20 +57,39 @@ pip install -e .
 ```
 
 ### 3. Run the CLI
+
+**From the Repository Root:**
 ```bash
-# Run both summarizer and password generator using Ollama (default)
-python -m src.app
+# Windows PowerShell
+$env:PYTHONPATH = "."
+uv run python .\projects\01-llm-chains-and-prompts\src\app.py
 
+# macOS / Linux
+PYTHONPATH=. uv run python projects/01-llm-chains-and-prompts/src/app.py
+```
+
+**From the Project Directory (`projects/01-llm-chains-and-prompts`):**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "..\..;."
+uv run python src/app.py
+
+# macOS / Linux
+PYTHONPATH=../..:. uv run python src/app.py
+```
+
+**Optional Flags & Arguments:**
+```bash
 # Run with OpenAI
-python -m src.app --provider openai --model gpt-4o-mini
+uv run python src/app.py --provider openai --model gpt-4o-mini
 
-# Run specific task
-python -m src.app --task summarize
+# Run a specific task
+uv run python src/app.py --task summarize
 ```
 
 ### 4. Run Unit Tests
 ```bash
-pytest tests/
+uv run pytest tests/
 ```
 
 ---

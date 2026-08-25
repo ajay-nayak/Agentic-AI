@@ -51,17 +51,39 @@ pip install -e .
 ```
 
 ### 3. Run the Graph Runner
+
+**From the Repository Root:**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "."
+uv run python .\projects\04-langgraph-state-workflows\src\app.py
+
+# macOS / Linux
+PYTHONPATH=. uv run python projects/04-langgraph-state-workflows/src/app.py
+```
+
+**From the Project Directory (`projects/04-langgraph-state-workflows`):**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "..\..;."
+uv run python src/app.py
+
+# macOS / Linux
+PYTHONPATH=../..:. uv run python src/app.py
+```
+
+**Optional Flags & Arguments:**
 ```bash
 # Complex query triggering the research & synthesis path
-python -m src.app --query "Research and compare agent memory vs vector RAG architectures."
+uv run python src/app.py --query "Research and compare agent memory vs vector RAG architectures."
 
 # Simple query routing to direct answer
-python -m src.app --query "Hello, how are you today?"
+uv run python src/app.py --query "Hello, how are you today?"
 ```
 
 ### 4. Run Unit Tests
 ```bash
-pytest tests/
+uv run pytest tests/
 ```
 
 ---

@@ -3,7 +3,10 @@
 import argparse
 from shared.python.utils.logger import get_logger
 from shared.python.utils.env_loader import load_project_env
-from .model_switcher import GroqModelSwitcher, compare_models, VALID_GROQ_MODELS
+try:
+    from .model_switcher import GroqModelSwitcher, compare_models, VALID_GROQ_MODELS
+except (ImportError, ValueError):
+    from model_switcher import GroqModelSwitcher, compare_models, VALID_GROQ_MODELS
 
 load_project_env()
 logger = get_logger("02-model-switching-groq")
