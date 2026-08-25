@@ -1,0 +1,17 @@
+[project]
+name = "new-agent-project"
+version = "0.1.0"
+description = "Template project for building Agentic AI systems with LangChain and LangGraph."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=1.2.15",
+    "langchain-core>=0.3.0",
+    "langgraph>=0.2.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]

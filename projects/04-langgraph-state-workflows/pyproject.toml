@@ -1,0 +1,17 @@
+[project]
+name = "04-langgraph-state-workflows"
+version = "0.1.0"
+description = "Stateful multi-node Agentic workflows, conditional routing, and graph orchestration with LangGraph."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "pydantic>=2.7.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
