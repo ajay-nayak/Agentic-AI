@@ -11,7 +11,6 @@ resolution-markers = [
 [manifest]
 members = [
     "01-llm-chains-and-prompts",
-    "02-model-switching-groq",
     "03-ai-search-agent",
     "04-langgraph-state-workflows",
     "agentic-ai-workspace",
@@ -40,32 +39,6 @@ requires-dist = [
     { name = "langchain-core", specifier = ">=0.3.0" },
     { name = "langchain-ollama", specifier = ">=1.1.0" },
     { name = "langchain-openai", specifier = ">=1.2.1" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
-    { name = "python-dotenv", specifier = ">=1.0.1" },
-]
-provides-extras = ["dev"]
-
-[[package]]
-name = "02-model-switching-groq"
-version = "0.1.0"
-source = { virtual = "projects/02-model-switching-groq" }
-dependencies = [
-    { name = "langchain" },
-    { name = "langchain-core" },
-    { name = "langchain-groq" },
-    { name = "python-dotenv" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "pytest" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "langchain", specifier = ">=1.2.15" },
-    { name = "langchain-core", specifier = ">=0.3.0" },
-    { name = "langchain-groq", specifier = ">=0.2.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
 ]
