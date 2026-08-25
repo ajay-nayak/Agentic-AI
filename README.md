@@ -342,13 +342,23 @@ Copy `.env.example` to `.env` and configure your API keys:
 cp .env.example .env
 ```
 
-### 5. Validate Repository & Run Test Suites
+### 5. Running Projects & Examples
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "."
+uv run python .\projects\01-llm-chains-and-prompts\src\app.py
+
+# macOS / Linux
+PYTHONPATH=. uv run python projects/01-llm-chains-and-prompts/src/app.py
+```
+
+### 6. Validate Repository & Run Test Suites
 ```bash
 # Verify integrity of all projects, docs, and python syntax
-python scripts/validation/validate_repo.py
+uv run python scripts/validation/validate_repo.py
 
 # Run all test suites across projects
-python scripts/development/run_all_tests.py
+uv run python scripts/development/run_all_tests.py
 ```
 
 ---

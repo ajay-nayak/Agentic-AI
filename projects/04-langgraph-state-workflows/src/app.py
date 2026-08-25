@@ -2,7 +2,10 @@
 
 import argparse
 from shared.python.utils.logger import get_logger
-from .workflow import run_research_workflow
+try:
+    from .workflow import run_research_workflow
+except (ImportError, ValueError):
+    from workflow import run_research_workflow
 
 logger = get_logger("04-langgraph-state-workflows")
 

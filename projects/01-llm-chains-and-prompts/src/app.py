@@ -5,8 +5,12 @@ from shared.python.utils.logger import get_logger
 from shared.python.utils.env_loader import load_project_env
 from shared.python.utils.model_factory import get_chat_model
 
-from .summarizer import summarize_text
-from .password_generator import generate_password
+try:
+    from .summarizer import summarize_text
+    from .password_generator import generate_password
+except (ImportError, ValueError):
+    from summarizer import summarize_text
+    from password_generator import generate_password
 
 logger = get_logger("01-llm-chains-and-prompts")
 

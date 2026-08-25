@@ -61,20 +61,39 @@ pip install -e .
 ```
 
 ### 3. Run the CLI
-```bash
-# Run with live Groq API (if GROQ_API_KEY is set) or automatic mock fallback
-python -m src.app
 
+**From the Repository Root:**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "."
+uv run python .\projects\02-model-switching-groq\src\app.py
+
+# macOS / Linux
+PYTHONPATH=. uv run python projects/02-model-switching-groq/src/app.py
+```
+
+**From the Project Directory (`projects/02-model-switching-groq`):**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "..\..;."
+uv run python src/app.py
+
+# macOS / Linux
+PYTHONPATH=../..:. uv run python src/app.py
+```
+
+**Optional Flags & Arguments:**
+```bash
 # Force offline mock execution
-python -m src.app --mock
+uv run python src/app.py --mock
 
 # Query with custom prompt
-python -m src.app --prompt "Explain the difference between deterministic and agentic AI."
+uv run python src/app.py --prompt "Explain the difference between deterministic and agentic AI."
 ```
 
 ### 4. Run Unit Tests
 ```bash
-pytest tests/
+uv run pytest tests/
 ```
 
 ---

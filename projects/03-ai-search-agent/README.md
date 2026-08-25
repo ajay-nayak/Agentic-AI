@@ -68,20 +68,39 @@ pip install -e .
 ```
 
 ### 3. Run the Search Agent
-```bash
-# Run with default query using local Ollama model
-python -m src.app
 
+**From the Repository Root:**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "."
+uv run python .\projects\03-ai-search-agent\src\app.py
+
+# macOS / Linux
+PYTHONPATH=. uv run python projects/03-ai-search-agent/src/app.py
+```
+
+**From the Project Directory (`projects/03-ai-search-agent`):**
+```bash
+# Windows PowerShell
+$env:PYTHONPATH = "..\..;."
+uv run python src/app.py
+
+# macOS / Linux
+PYTHONPATH=../..:. uv run python src/app.py
+```
+
+**Optional Flags & Arguments:**
+```bash
 # Run with custom query
-python -m src.app --query "What are the latest developments in AI Agent memory systems in 2026?"
+uv run python src/app.py --query "What are the latest developments in AI Agent memory systems in 2026?"
 
 # Run with OpenAI GPT-4o-mini
-python -m src.app --provider openai --model gpt-4o-mini
+uv run python src/app.py --provider openai --model gpt-4o-mini
 ```
 
 ### 4. Run Unit Tests
 ```bash
-pytest tests/
+uv run pytest tests/
 ```
 
 ---
