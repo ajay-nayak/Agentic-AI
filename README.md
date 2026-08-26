@@ -1,11 +1,47 @@
 # 🤖 Agentic AI Projects & Architectures
 
-A modern, scalable monorepo of **Agentic AI systems, autonomous workflows, and intelligent agent architectures** built with **LangChain**, **LangGraph**, **Python**, and modern frontend integration patterns.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/LangChain-1.x-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" />
+  <img src="https://img.shields.io/badge/LangGraph-Stateful_Agents-FF6F00?style=for-the-badge" alt="LangGraph" />
+  <img src="https://img.shields.io/badge/Ollama-Local_LLMs-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" />
+  <img src="https://img.shields.io/badge/FastAPI-Interactive_UI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License" />
+</p>
+
+A modern, production-grade monorepo of **Agentic AI systems, autonomous workflows, and intelligent agent architectures** built with **LangChain**, **LangGraph**, **Python**, and modern frontend integration patterns.
+
+---
+
+## 🎬 Project Demo & Live Showcase
+
+Experience the agentic architectures in action! The walkthrough below demonstrates the interactive web application, multi-provider LCEL prompt chains, and the autonomous ReAct web search agent executing live research workflows.
+
+<div align="center">
+  <video src="./Video%20Project%201.mp4" controls="controls" muted="muted" width="100%" style="max-width: 850px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.25);">
+    <p>Your browser does not support the video tag. <a href="./Video%20Project%201.mp4"><strong>▶ Click here to view or download Video Project 1.mp4</strong></a></p>
+  </video>
+  <p><em>🎥 <strong>Project Demo Walkthrough</strong> — Featuring LCEL Prompt Chains & Autonomous ReAct Search Agent</em></p>
+</div>
+
+### 🌟 Key Highlights Demonstrated in the Video:
+* **⚡ Project 01 — Dynamic LCEL Chains & Prompt Engineering:** Real-time summarization, factual point extraction, temperature calibration, and multi-provider LLM routing (Local Ollama vs. Cloud OpenAI/Groq).
+* **🔍 Project 03 — Autonomous ReAct Search Agent:** Multi-step autonomous reasoning with Tavily web retrieval, iterative Thought-Action-Observation loops, and grounded fact synthesis.
+* **💻 Interactive Showcase UI:** Unified glassmorphism dashboard for real-time parameter tweaking, live agent execution, and instant markdown output rendering.
+
+> [!TIP]
+> **Try it locally in under 30 seconds:**
+> ```bash
+> # Clone and launch the interactive demo web application
+> uv run python run_web.py
+> ```
+> Visit `http://localhost:8000` to interact with both projects live in your browser.
 
 ---
 
 ## 📖 Table of Contents
 
+00. [Project Demo & Live Showcase](#-project-demo--live-showcase)
 01. [What is Agentic AI?](#01-what-is-agentic-ai)
 02. [Core Agentic AI Architecture](#02-core-agentic-ai-architecture)
 03. [Agent Paradigms & The ReAct Pattern](#03-agent-paradigms--the-react-pattern)
@@ -338,17 +374,28 @@ Copy `.env.example` to `.env` and configure your API keys:
 cp .env.example .env
 ```
 
-### 5. Running Projects & Examples
+### 5. Launch Interactive Web Showcase
+Run the web application demo to interactively summarize documents, extract facts, and query the ReAct search agent:
+```bash
+# Start the web app (FastAPI + Modern Web UI)
+uv run python run_web.py
+```
+Open **`http://localhost:8000`** in your browser.
+
+### 6. Running Individual CLI Examples
 ```bash
 # Windows PowerShell
 $env:PYTHONPATH = "."
-uv run python .\projects\01-llm-chains-and-prompts\src\app.py
+uv run python .\projects\01-llm-chains-and-prompts\src\app.py --mode facts
 
-# macOS / Linux
-PYTHONPATH=. uv run python projects/01-llm-chains-and-prompts/src/app.py
+# Project 03 - AI Search Agent
+uv run python .\projects\03-ai-search-agent\src\app.py
+
+# Project 04 - LangGraph Workflows
+uv run python .\projects\04-langgraph-state-workflows\src\app.py
 ```
 
-### 6. Validate Repository & Run Test Suites
+### 7. Validate Repository & Run Test Suites
 ```bash
 # Verify integrity of all projects, docs, and python syntax
 uv run python scripts/validation/validate_repo.py

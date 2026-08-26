@@ -10,6 +10,9 @@ This project demonstrates the core foundational building block of LLM applicatio
 - **Text Summarization**: Structured prompt templating with parameterized variable inputs to distill documents and extract key takeaways.
 - **Provider Switching**: Seamlessly running chains against local Ollama models (`gemma4:e2b`) or cloud LLMs (OpenAI, Groq).
 
+> [!TIP]
+> **🎬 Demo Walkthrough:** See this project running live in the demo video on the [Main Repository README](../../README.md#-project-demo--live-showcase) or test it in the web UI via `uv run python run_web.py`.
+
 ---
 
 ## 🧠 Agentic AI Concepts Demonstrated

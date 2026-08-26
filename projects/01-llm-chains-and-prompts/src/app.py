@@ -6,9 +6,9 @@ from shared.python.utils.env_loader import load_project_env
 from shared.python.utils.model_factory import get_chat_model
 
 try:
-    from .summarizer import summarize_text
+    from .summarizer import summarize_text, extract_facts
 except (ImportError, ValueError):
-    from summarizer import summarize_text
+    from summarizer import summarize_text, extract_facts
 
 logger = get_logger("01-llm-chains-and-prompts")
 
@@ -29,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description="LangChain LCEL Chains & Prompts Demo")
     parser.add_argument("--provider", default="ollama", choices=["ollama", "openai", "groq"], help="LLM Provider")
     parser.add_argument("--model", default=None, help="Specific model name (e.g. gemma4:e2b, gpt-4o-mini)")
+    parser.add_argument("--mode", default="full", choices=["summary", "facts", "full"], help="Analysis mode")
     parser.add_argument("--text", default=None, help="Custom text string to summarize")
     args = parser.parse_args()
 
@@ -41,10 +42,20 @@ def main():
     try:
         model = get_chat_model(provider=args.provider, model_name=args.model)
         
-        print("\n[1] Running Summarization Chain...")
-        print("--------------------------------------------------------")
-        summary = summarize_text(input_text, llm=model)
-        print(f"Summary Output:\n{summary}\n")
+        if args.mode == "facts":
+            print("\n[1] Running Facts Extraction Chain...")
+            print("--------------------------------------------------------")
+            output = extract_facts(input_text, llm=model)
+        elif args.mode == "summary":
+            print("\n[1] Running Concise Summarization Chain...")
+            print("--------------------------------------------------------")
+            output = summarize_text(input_text, llm=model, mode="summary")
+        else:
+            print("\n[1] Running Full Summarization & Key Facts Chain...")
+            print("--------------------------------------------------------")
+            output = summarize_text(input_text, llm=model, mode="full")
+            
+        print(f"Output:\n{output}\n")
             
     except Exception as e:
         logger.error(f"Execution failed: {e}")
