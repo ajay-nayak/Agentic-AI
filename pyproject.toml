@@ -19,6 +19,10 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "pydantic>=2.7.0",
     "rich>=13.7.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "python-multipart>=0.0.9",
+    "pypdf>=4.0.0",
 ]
 
 [project.optional-dependencies]

@@ -13,6 +13,9 @@ Unlike static prompt chains that execute pre-defined sequences, an **Agent** act
 
 This project implements an autonomous web search agent that interfaces with the Tavily Search API and supports offline simulated fallbacks.
 
+> [!TIP]
+> **🎬 Demo Walkthrough:** See this ReAct agent reasoning and executing live searches in the demo video on the [Main Repository README](../../README.md#-project-demo--live-showcase) or test it in the web UI via `uv run python run_web.py`.
+
 ---
 
 ## 🧠 Agentic AI Concepts Demonstrated

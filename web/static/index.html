@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI Systems Showcase</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Highlight.js & Marked for Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <div class="app-container">
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">Agentic AI <span class="badge-tag">Showcase</span></h1>
+          <p class="brand-subtitle">Autonomous Workflows, LCEL Chains & ReAct Agent System</p>
+        </div>
+      </div>
+
+      <!-- Global Settings & Provider Selector -->
+      <div class="header-controls">
+        <div class="status-indicator" id="systemStatus">
+          <span class="status-dot online"></span>
+          <span class="status-text">Backend Active</span>
+        </div>
+
+        <div class="control-select-group">
+          <label for="globalProvider">LLM Provider</label>
+          <select id="globalProvider" class="styled-select">
+            <option value="ollama" selected>Ollama (Local)</option>
+            <option value="openai">OpenAI</option>
+            <option value="groq">Groq</option>
+          </select>
+        </div>
+
+        <div class="control-input-group">
+          <label for="globalModel">Model Override</label>
+          <input type="text" id="globalModel" class="styled-input" placeholder="e.g. gemma4:e2b" />
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-document" role="tab" aria-selected="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <span>Document & Facts Intelligence</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-search" role="tab" aria-selected="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Semantic AI Search Agent</span>
+      </button>
+
+      <button class="tab-btn tab-btn-future" data-tab="tab-future" role="tab" aria-selected="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <span>More Features (Coming Soon...)</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: Document Intelligence -->
+    <main class="tab-content active" id="tab-document">
+      <div class="feature-banner">
+        <div class="banner-text">
+          <h2>📄 Document Summarization & Key Facts Extraction</h2>
+          <p>Powered by <strong>LangChain Expression Language (LCEL)</strong>. Upload a document (PDF, TXT, MD, JSON,
+            CSV up to 5MB) or paste text directly to generate focused summaries or extract standout facts.</p>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <!-- Left Panel: Input & Controls -->
+        <section class="card input-card">
+          <div class="card-header">
+            <h3>Input Source</h3>
+            <div class="preset-chips">
+              <span class="preset-label">Sample Presets:</span>
+              <button class="chip-btn" id="presetMobile">📱 Mobile AI Framework</button>
+              <button class="chip-btn" id="presetAgentic">🤖 Agentic Paradigms</button>
+              <button class="chip-btn" id="presetScaling">⚡ Deep Learning Scaling</button>
+            </div>
+          </div>
+
+          <!-- Drag and Drop Zone -->
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" class="file-input-hidden"
+              accept=".txt,.md,.pdf,.json,.csv,.py,.log,.rst" />
+            <div class="drop-zone-content">
+              <div class="upload-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <p class="drop-title"><strong>Click to upload</strong> or drag and drop file here</p>
+              <p class="drop-subtitle">Supported: PDF, TXT, Markdown, JSON, CSV &bull; Max 5.0 MB</p>
+            </div>
+
+            <!-- Uploaded File Badge -->
+            <div class="file-badge" id="fileBadge" style="display: none;">
+              <span class="file-badge-icon">📎</span>
+              <span class="file-badge-name" id="fileNameDisplay">file.txt</span>
+              <span class="file-badge-size" id="fileSizeDisplay">(0 KB)</span>
+              <button type="button" class="btn-clear-file" id="btnClearFile" title="Remove file">&times;</button>
+            </div>
+          </div>
+
+          <!-- Text Area Input -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="inputText">Or Paste Large Text Below:</label>
+              <div class="text-stats">
+                <span id="charCount">0 chars</span> &bull; <span id="wordCount">0 words</span>
+              </div>
+            </div>
+            <textarea id="inputText" class="styled-textarea" rows="9"
+              placeholder="Paste your article, meeting notes, research paper, or codebase snippet here..."></textarea>
+          </div>
+
+          <!-- Action Buttons Bar -->
+          <div class="actions-toolbar">
+            <button class="btn btn-primary" id="btnSummarize" title="Generate concise summary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="21" y1="10" x2="3" y2="10"></line>
+                <line x1="21" y1="6" x2="3" y2="6"></line>
+                <line x1="21" y1="14" x2="3" y2="14"></line>
+                <line x1="21" y1="18" x2="3" y2="18"></line>
+              </svg>
+              <span>📝 Summarize Text</span>
+            </button>
+
+            <button class="btn btn-emerald" id="btnFacts" title="Extract 2 interesting/key insights">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>💡 2 Interesting Facts</span>
+            </button>
+
+            <button class="btn btn-accent" id="btnFullAnalysis" title="Combined summary and key facts">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>🚀 Full Analysis</span>
+            </button>
+
+            <button class="btn btn-ghost" id="btnClearText" title="Clear input">
+              <span>Clear</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Right Panel: Output & Insights -->
+        <section class="card output-card">
+          <div class="card-header">
+            <h3>Generated Intelligence</h3>
+            <div class="output-header-actions">
+              <div class="meta-pill" id="docMetaPill" style="display: none;">
+                <span id="docDuration">⚡ 0ms</span>
+              </div>
+              <button class="btn-icon" id="btnCopyDoc" title="Copy markdown to clipboard" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="output-empty-state" id="docEmptyState">
+            <div class="empty-icon">✨</div>
+            <h4>Ready for Inference</h4>
+            <p>Upload a file or paste text on the left, then click an action button to run the LCEL chain.</p>
+          </div>
+
+          <!-- Loading State (Wait Indicator) -->
+          <div class="loading-state" id="docLoadingState" style="display: none;">
+            <div class="spinner"></div>
+            <p class="loading-title">Synthesizing response via LLM...</p>
+            <p class="loading-subtitle">Executing LangChain prompt pipeline</p>
+            <div class="skeleton-lines">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+            </div>
+          </div>
+
+          <!-- Formatted Markdown Output Container -->
+          <div class="output-content-box markdown-body" id="docOutputBox" style="display: none;"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- TAB 2: Semantic AI Search Agent -->
+    <main class="tab-content" id="tab-search">
+      <div class="feature-banner">
+        <div class="banner-text">
+          <h2>🔍 Autonomous ReAct AI Search Agent</h2>
+          <p>Powered by <strong>ReAct (Reasoning + Acting) loops</strong> with tool grounding. Formulates queries,
+            triggers search tools, evaluates observations, and synthesizes accurate, factual answers.</p>
+        </div>
+      </div>
+
+      <div class="search-layout">
+        <!-- Search Bar Card -->
+        <section class="card search-hero-card">
+          <form id="searchForm" class="search-input-form">
+            <div class="search-bar-wrapper">
+              <span class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <input type="text" id="searchQuery" class="styled-search-input"
+                placeholder="Ask any question or research query (e.g., 'Find 3 job openings for senior mobile developer in Bangalore with AI exposure')" />
+              <button type="submit" class="btn btn-primary btn-search-submit" id="btnRunSearch">
+                <span>Run Search Agent</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="search-presets">
+            <span class="preset-label">Try Query:</span>
+            <button class="chip-btn" id="presetSearchJobs">💼 Bangalore AI Jobs</button>
+            <button class="chip-btn" id="presetSearchMemory">🧠 Agent Memory Architectures 2026</button>
+            <button class="chip-btn" id="presetSearchCompare">⚡ LCEL vs LangGraph State Graphs</button>
+          </div>
+        </section>
+
+        <!-- Search Results Card -->
+        <section class="card output-card">
+          <div class="card-header">
+            <h3>Agent Reasoning & Synthesized Findings</h3>
+            <div class="output-header-actions">
+              <div class="meta-pill" id="searchMetaPill" style="display: none;">
+                <span id="searchDuration">⚡ 0ms</span>
+              </div>
+              <button class="btn-icon" id="btnCopySearch" title="Copy output" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="output-empty-state" id="searchEmptyState">
+            <div class="empty-icon">🌐</div>
+            <h4>Agent Idle</h4>
+            <p>Enter a query above and run the autonomous agent to observe tool calling and real-time grounding.</p>
+          </div>
+
+          <!-- Loading State -->
+          <div class="loading-state" id="searchLoadingState" style="display: none;">
+            <div class="spinner"></div>
+            <p class="loading-title">Agent is executing reasoning loop...</p>
+            <p class="loading-subtitle">Formulating thoughts, calling Tavily search tool & observing results</p>
+            <div class="skeleton-lines">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+            </div>
+          </div>
+
+          <!-- Output Box -->
+          <div class="output-content-box markdown-body" id="searchOutputBox" style="display: none;"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- TAB 3: Extensible Future Projects -->
+    <main class="tab-content" id="tab-future">
+      <div class="card future-card">
+        <div class="future-icon">🚀</div>
+        <h2>Modular Agentic AI Hub</h2>
+        <p>This showcase frontend is designed with a plug-and-play architecture. As you build and mature additional
+          workflows (such as LangGraph multi-agent teams, vector RAG pipelines, or SQL query agents), they can be
+          attached here effortlessly.</p>
+        <div class="future-grid">
+          <div class="future-item">
+            <h4>🔄 Cyclic State Graphs</h4>
+            <p>LangGraph multi-node state orchestration with human-in-the-loop approvals.</p>
+          </div>
+          <div class="future-item">
+            <h4>📚 Hybrid Vector RAG</h4>
+            <p>Document chunking, dense vector embeddings, and reranked semantic retrieval.</p>
+          </div>
+          <div class="future-item">
+            <h4>🤖 Multi-Agent Collaboration</h4>
+            <p>Hierarchical supervisor-worker networks with specialized domain agents.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Toast Alert Container -->
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="/static/app.js"></script>
+</body>
+
+</html>
