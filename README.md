@@ -15,14 +15,24 @@ A modern, production-grade monorepo of **Agentic AI systems, autonomous workflow
 
 ## 🎬 Project Demo & Live Showcase
 
-Experience the agentic architectures in action! The walkthrough below demonstrates the interactive web application, multi-provider LCEL prompt chains, and the autonomous ReAct web search agent executing live research workflows.
+Experience the agentic architectures in action! Watch the walkthrough demonstrating the interactive web application, multi-provider LCEL prompt chains, and the autonomous ReAct web search agent executing live research workflows.
 
 <div align="center">
-  <video src="./Video%20Project%201.mp4" controls="controls" muted="muted" width="100%" style="max-width: 850px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.25);">
-    <p>Your browser does not support the video tag. <a href="./Video%20Project%201.mp4"><strong>▶ Click here to view or download Video Project 1.mp4</strong></a></p>
-  </video>
-  <p><em>🎥 <strong>Project Demo Walkthrough</strong> — Featuring LCEL Prompt Chains & Autonomous ReAct Search Agent</em></p>
+
+### 📺 Video Walkthrough: LCEL Prompt Chains & Autonomous ReAct Search Agent
+
+[![▶ Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo%20Video-Video%20Project%201.mp4-E63946?style=for-the-badge&logo=youtube&logoColor=white)](./Video%20Project%201.mp4)
+[![Download MP4](https://img.shields.io/badge/📥%20Download%20MP4-31.7%20MB-457B9D?style=for-the-badge&logo=googlechrome&logoColor=white)](./Video%20Project%201.mp4)
+[![GitHub Player](https://img.shields.io/badge/🌐%20View%20in%20GitHub%20Player-Stream%20Online-2A9D8F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ajay-nayak/Agentic-AI/blob/devel/Video%20Project%201.mp4)
+
 </div>
+
+> [!IMPORTANT]
+> ### 🎥 [▶️ Click here to Play Demo Video (`Video Project 1.mp4`)](./Video%20Project%201.mp4)
+>
+> *Click the link above to play the video directly using GitHub's built-in media player, or access via the links below:*
+> - 🎬 **Repository Link:** [`Video Project 1.mp4`](./Video%20Project%201.mp4)
+> - 🌐 **GitHub Web Player:** [Watch on GitHub (`devel` branch)](https://github.com/ajay-nayak/Agentic-AI/blob/devel/Video%20Project%201.mp4) | [Watch on GitHub (`main` branch)](https://github.com/ajay-nayak/Agentic-AI/blob/main/Video%20Project%201.mp4)
 
 ### 🌟 Key Highlights Demonstrated in the Video:
 * **⚡ Project 01 — Dynamic LCEL Chains & Prompt Engineering:** Real-time summarization, factual point extraction, temperature calibration, and multi-provider LLM routing (Local Ollama vs. Cloud OpenAI/Groq).
