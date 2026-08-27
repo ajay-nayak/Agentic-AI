@@ -17,6 +17,10 @@ A modern, production-grade monorepo of **Agentic AI systems, autonomous workflow
 
 
 
+https://github.com/user-attachments/assets/df2744e6-1855-49f1-8c0e-008503602ba0
+
+
+
 Experience the agentic architectures in action! The walkthrough below demonstrates the interactive web application, multi-provider LCEL prompt chains, and the autonomous ReAct web search agent executing live research workflows.
 
 <div align="center">
